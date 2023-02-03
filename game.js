@@ -12,7 +12,7 @@ const settings = document.getElementById('settings');
 function main(currentTime) {
     if(gameOver){
         if(confirm('You lost. Press ok to restart.')){
-            window.location = '/';
+            window.location = '/Snake';
         }
         else{
             window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank');
