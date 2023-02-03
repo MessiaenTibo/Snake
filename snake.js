@@ -1,6 +1,12 @@
 import { getInputDirection } from "./input.js";
 
-export const SNAKE_SPEED = 6; //segments per second
+const speed_input = document.getElementById('speed-input');
+export let SNAKE_SPEED = speed_input.value; //segments per second
+
+speed_input.addEventListener('change', () => {
+    SNAKE_SPEED = speed_input.value;
+});
+
 const snakeBody = [
     {x: 10, y: 11}
 ];

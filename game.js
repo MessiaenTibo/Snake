@@ -1,11 +1,13 @@
 import { update as updateSnake, draw as drawSnake, SNAKE_SPEED, getSnakeHead, snakeIntersection } from "./snake.js";
 import { update as updateFood, draw as drawFood } from "./food.js";
 import { outsideGrid } from "./grid.js";
-import { gamePaused } from "./input.js";
+import { gamePaused, settingsMenuActive } from "./input.js";
 
 let lastRenderTime = 0;
 let gameOver = false;
 const gameBoard = document.getElementById('game-board');
+const pause = document.getElementById('paused');
+const settings = document.getElementById('settings');
 
 function main(currentTime) {
     if(gameOver){
@@ -20,10 +22,18 @@ function main(currentTime) {
 
     window.requestAnimationFrame(main);
     if(gamePaused) {
-        document.getElementById('paused').style.display = 'block';
+        pause.style.display = 'block';
         return;
     }
-    else document.getElementById('paused').style.display = 'none';
+    else if(settingsMenuActive)
+    {
+        settings.style.display = 'flex';
+        return;
+    }
+    else {
+        pause.style.display = 'none';
+        settings.style.display = 'none';
+    }
     const secondsSinceLastRender = (currentTime - lastRenderTime) / 1000;
     if(secondsSinceLastRender < 1 / SNAKE_SPEED) return;
     lastRenderTime = currentTime;

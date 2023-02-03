@@ -2,7 +2,12 @@ import {onSnake, expandSnake} from './snake.js';
 import {randomGridPosition} from './grid.js';
 
 let food = getRandomFoodPosition();
-const EXPANTION_RATE = 1;
+const growth_input = document.getElementById('growth-input');
+let EXPANTION_RATE = growth_input.value;
+
+growth_input.addEventListener('change', () => {
+    EXPANTION_RATE = growth_input.value;
+});
 
 export function update(){
     if(onSnake(food)){

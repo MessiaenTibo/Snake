@@ -10,6 +10,7 @@
             height: 100vh;
             width: 100vw;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             margin: 0;
@@ -34,12 +35,32 @@
             background-color: red;
             border: .25vmin solid black;
         }
+
+        #settings{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
+        }
     </style>
     <script src="game.js" defer type="module"></script>
 </head>
 <body>
     <div id="game-board"></div>
+    <div id="settings" style="color: white; display: none;">
+        <h1>Controls</h1>
+        <p>WASD or Arrow Keys</p>
+        <h1>Settings</h1>
+        <p>Speed: <input id="speed-input" type="range" id="speed" min="1" max="10" value="5"></p>
+        <p>Growth: <input id="growth-input" type="range" id="size" min="1" max="10" value="1"></p>
+    </div>
     <h1 id="paused" style="position: absolute; font-size: 10vmin; font-weight: bold; opacity: 0.8; display: none;">Paused</h1>
-    <h1 id="game-over" style="position: absolute; font-size: 10vmin; font-weight: bold; display: block; color: red; display: none;">Game Over</h1>
 </body>
 </html>
