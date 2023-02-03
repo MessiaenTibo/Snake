@@ -1,10 +1,15 @@
 import { getInputDirection } from "./input.js";
 
 const speed_input = document.getElementById('speed-input');
+speed_input.value = localStorage.getItem('snakeSpeed') || 5; //get the value from the local storage or set it to 5 if it doesn't exist
 export let SNAKE_SPEED = speed_input.value; //segments per second
 
+// check if the speed input has changed
 speed_input.addEventListener('change', () => {
+    // get the new value of the speed input
     SNAKE_SPEED = speed_input.value;
+    // store the new value in the local storage
+    localStorage.setItem('snakeSpeed', SNAKE_SPEED);
 });
 
 const snakeBody = [
