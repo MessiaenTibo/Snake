@@ -1,5 +1,6 @@
 import { getInputDirection } from "./input.js";
 
+const score = document.getElementById('score');
 const speed_input = document.getElementById('speed-input');
 speed_input.value = localStorage.getItem('snakeSpeed') || 5; //get the value from the local storage or set it to 5 if it doesn't exist
 export let SNAKE_SPEED = speed_input.value; //segments per second
@@ -63,6 +64,7 @@ function equalPositions(pos1, pos2){
 
 function addSegments(){
     for(let i = 0; i < newSegments; i++){
+        score.innerHTML = parseInt(score.innerHTML) + 1;
         snakeBody.push({...snakeBody[snakeBody.length - 1]}); //copy the last segment and add it to the end of the snake
     }
     newSegments = 0;

@@ -9,8 +9,7 @@
     <script src="game.js" defer type="module"></script>
 </head>
 <body>
-    <div id="game-board">
-    </div>
+    <div id="game-board"></div>
     <div id="settings" style="color: white; display: none;">
         <h1>Controls</h1>
         <p>WASD or Arrow Keys</p>
@@ -18,6 +17,7 @@
         <p>Speed: <input id="speed-input" type="range" id="speed" min="1" max="10" value="5"></p>
         <p>Growth: <input id="growth-input" type="range" id="size" min="1" max="10" value="1"></p>
     </div>
+    <h1 id="score">0</h1>
     <h1 id="paused">Paused</h1>
     <div id="display-settings">
         <h1>ESC = settings</h1>

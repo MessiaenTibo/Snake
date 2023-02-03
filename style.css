@@ -62,3 +62,11 @@ body{
 #display-settings h1{
     font-size: 4vmin;
 }
+
+#score{
+    position: absolute;
+    top: 0;
+    padding: 8px;
+    font-size: 5vmin;
+    color: white;
+}
